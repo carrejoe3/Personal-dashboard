@@ -41,6 +41,16 @@ export default {
     password: '',
     showSnackbar: false
   }),
+  computed: {
+    user: {
+      get () {
+        return this.$store.user
+      },
+      set (user) {
+        this.$store.commit('updateUser', user)
+      }
+    }
+  },
   methods: {
     async login () {
       try {
@@ -53,6 +63,7 @@ export default {
           if (response.data.length === 0) {
             this.showSnackbar = true
           } else {
+            this.user = response.data[0]
             this.$router.push('Dashboard')
           }
         } else {
