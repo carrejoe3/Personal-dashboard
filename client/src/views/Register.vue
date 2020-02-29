@@ -11,15 +11,15 @@
               </v-toolbar>
               <v-card-text>
                 <v-form>
-                  <v-text-field label="Username" name="username" type="text" />
-                  <v-text-field label="Email" name="email" type="text" />
-                  <v-text-field id="password" label="Password" name="password" type="password"/>
-                  <v-text-field id="confirmPassword" label="Confirm password" name="confirmPassword" type="password"/>
+                  <v-text-field label="Username" name="username" type="text" v-model="username"/>
+                  <v-text-field label="Email" name="email" type="text" v-model="email"/>
+                  <v-text-field id="password" label="Password" name="password" type="password" v-model="password"/>
+                  <v-text-field id="confirmPassword" label="Confirm password" name="confirmPassword" type="password" v-model="confirmPassword"/>
                 </v-form>
               </v-card-text>
               <v-card-actions>
                 <v-spacer />
-                <v-btn color="primary">Register</v-btn>
+                <v-btn color="primary" @click="registerUser">Register</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -30,6 +30,25 @@
 </template>
 
 <script>
+
+import authenication from '@/services/authenication'
+
 export default {
+  data: () => ({
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  }),
+  methods: {
+    async registerUser () {
+      const response = authenication.register({
+        username: this.username,
+        email: this.email,
+        password: this.password
+      })
+      console.log(response)
+    }
+  }
 }
 </script>

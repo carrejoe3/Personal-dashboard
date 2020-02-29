@@ -11,8 +11,8 @@
               </v-toolbar>
               <v-card-text>
                 <v-form>
-                  <v-text-field label="Username" name="username" type="text" />
-                  <v-text-field id="password" label="Password" name="password" type="password"/>
+                  <v-text-field label="Username" name="username" type="text" v-model="username"/>
+                  <v-text-field id="password" label="Password" name="password" type="password" v-model="password"/>
                 </v-form>
               </v-card-text>
               <v-card-actions>
@@ -30,5 +30,9 @@
 
 <script>
 export default {
+  data: () => ({
+    username: '',
+    password: ''
+  })
 }
 </script>

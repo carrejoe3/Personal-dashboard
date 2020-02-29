@@ -10,7 +10,7 @@ app.use(bodyParser.json())
 app.use(cors())
 
 app.post('/register', (req, res) => {
-  res.send('You are registered!')
+  res.send(`Hello ${req.body.username}, you are registered!`)
 })
 
 app.listen(process.env.PORT || 8081)
