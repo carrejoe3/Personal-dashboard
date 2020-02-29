@@ -17,7 +17,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer />
-                <v-btn color="primary">Login</v-btn>
+                <v-btn color="primary" @click="login">Login</v-btn>
                 <v-btn to="/register" color="primary">Register</v-btn>
               </v-card-actions>
             </v-card>
@@ -29,10 +29,26 @@
 </template>
 
 <script>
+
+import authenication from '@/services/authenication'
+
 export default {
   data: () => ({
     username: '',
     password: ''
-  })
+  }),
+  methods: {
+    async login () {
+      const response = await authenication.login({
+        username: this.username,
+        password: this.password
+      })
+
+      // if (response.status === 201) {
+      //   console.log('login successful')
+      // }
+      console.log(response.data)
+    }
+  }
 }
 </script>

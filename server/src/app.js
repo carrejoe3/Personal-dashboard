@@ -10,6 +10,8 @@ app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
-require('./routes')(app)
+const routes = require('./routes')
+
+app.use('', routes)
 
 app.listen(config.port, () => console.log(`Server started on port ${config.port}`))
