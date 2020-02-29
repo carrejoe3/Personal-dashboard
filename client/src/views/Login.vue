@@ -23,6 +23,9 @@
             </v-card>
           </v-col>
         </v-row>
+        <v-snackbar v-model="showSnackbar">No user with that username or password was found
+          <v-btn color="red" text @click="showSnackbar = false">Close</v-btn>
+        </v-snackbar>
       </v-container>
     </v-content>
   </v-app>
@@ -35,7 +38,8 @@ import authenication from '@/services/authenication'
 export default {
   data: () => ({
     username: '',
-    password: ''
+    password: '',
+    showSnackbar: false
   }),
   methods: {
     async login () {
@@ -45,7 +49,15 @@ export default {
           password: this.password
         })
 
-        console.log(response.data)
+        if (response.status === 200) {
+          if (response.data.length === 0) {
+            this.showSnackbar = true
+          } else {
+            this.$router.push('Dashboard')
+          }
+        } else {
+          console.error('Login failed')
+        }
       } catch (error) {
         console.error(error)
       }

@@ -25,8 +25,8 @@
             </v-card>
           </v-col>
         </v-row>
-        <v-snackbar v-model="snackbar">Registration complete!
-          <v-btn color="red" text @click="snackbar = false">Close</v-btn>
+        <v-snackbar v-model="showSnackbar">Registration complete!
+          <v-btn color="red" text @click="showSnackbar = false">Close</v-btn>
         </v-snackbar>
       </v-container>
     </v-content>
@@ -44,7 +44,7 @@ export default {
     password: '',
     confirmPassword: '',
     userRegistered: false,
-    snackbar: false
+    showSnackbar: false
   }),
   methods: {
     async registerUser () {
@@ -57,7 +57,7 @@ export default {
 
         if (response.status === 201) {
           this.userRegistered = true
-          this.snackbar = true
+          this.showSnackbar = true
         } else {
           console.error('Registration failed')
         }
