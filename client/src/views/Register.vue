@@ -12,13 +12,14 @@
               <v-card-text>
                 <v-form>
                   <v-text-field label="Username" name="username" type="text" />
+                  <v-text-field label="Email" name="email" type="text" />
                   <v-text-field id="password" label="Password" name="password" type="password"/>
+                  <v-text-field id="confirmPassword" label="Confirm password" name="confirmPassword" type="password"/>
                 </v-form>
               </v-card-text>
               <v-card-actions>
                 <v-spacer />
-                <v-btn color="primary">Login</v-btn>
-                <v-btn to="/register" color="primary">Register</v-btn>
+                <v-btn color="primary">Register</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
