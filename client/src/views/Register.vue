@@ -48,15 +48,21 @@ export default {
   }),
   methods: {
     async registerUser () {
-      const response = await authenication.register({
-        username: this.username,
-        email: this.email,
-        password: this.password
-      })
+      try {
+        const response = await authenication.register({
+          username: this.username,
+          email: this.email,
+          password: this.password
+        })
 
-      if (response.status === 201) {
-        this.userRegistered = true
-        this.snackbar = true
+        if (response.status === 201) {
+          this.userRegistered = true
+          this.snackbar = true
+        } else {
+          console.error('Registration failed')
+        }
+      } catch (error) {
+        console.error(error)
       }
     }
   }

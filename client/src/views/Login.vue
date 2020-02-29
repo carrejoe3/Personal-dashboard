@@ -39,15 +39,16 @@ export default {
   }),
   methods: {
     async login () {
-      const response = await authenication.login({
-        username: this.username,
-        password: this.password
-      })
+      try {
+        const response = await authenication.login({
+          username: this.username,
+          password: this.password
+        })
 
-      // if (response.status === 201) {
-      //   console.log('login successful')
-      // }
-      console.log(response.data)
+        console.log(response.data)
+      } catch (error) {
+        console.error(error)
+      }
     }
   }
 }
