@@ -3,7 +3,13 @@ const mongoDB = require('mongodb')
 module.exports = (app) => {
   app.post('/register', async (req, res) => {
     const users = await loadUsersCollection()
-    res.send(await users.find({}).toArray())
+    await users.insertOne({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+      createdAt: new Date()
+    })
+    res.status(201).send()
   })
 }
 
