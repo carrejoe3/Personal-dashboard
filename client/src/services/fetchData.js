@@ -6,5 +6,8 @@ export default {
   },
   fetchClothesData () {
     return api().get('/fetchClothesData')
+  },
+  fetchSportsData () {
+    return api().get('/fetchSportsData')
   }
 }

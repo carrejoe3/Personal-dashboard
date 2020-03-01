@@ -57,6 +57,17 @@ router.get('/fetchClothesData', async (req, res) => {
   }
 })
 
+router.get('/fetchSportsData', async (req, res) => {
+  try {
+    request('http://www.football-data.co.uk/mmz4281/1718/I1.csv', function (error, response, body) {
+      res.send(body)
+    })
+  }
+  catch (error) {
+    res.status(500).send(error)
+  }
+})
+
 async function loadUsersCollection () {
   const client = await mongoDB.MongoClient.connect('mongodb+srv://dbUser:3d3nC0urt@personaldashboard-irjzv.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true
