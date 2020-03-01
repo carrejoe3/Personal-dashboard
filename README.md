@@ -1,5 +1,7 @@
 # Personal-dashboard
 
+Please use the 'develop' branch and follow the following instructions to launch the app locally:
+
 ``` bash
 FRONTEND
 
