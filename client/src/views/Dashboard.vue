@@ -4,7 +4,7 @@
     <v-row>
       <v-col sm="4">
         <v-card class="pa-2" outlined tile>
-          <WeatherModule />
+          <Weather />
         </v-card>
       </v-col>
       <v-col sm="4">
@@ -31,7 +31,7 @@
       </v-col>
       <v-col sm="4">
         <v-card class="pa-2" outlined tile>
-          <ClothesModule />
+          <Clothes />
         </v-card>
       </v-col>
     </v-row>
@@ -40,19 +40,19 @@
 
 <script>
 
-import ClothesModule from '@/components/ClothesModule'
+import Clothes from '@/components/Clothes'
 import PhotosThumbnail from '@/components/PhotosThumbnail'
 import WelcomeMessage from '@/components/WelcomeMessage'
-import WeatherModule from '@/components/WeatherModule'
+import Weather from '@/components/Weather'
 import NewsPreview from '@/components/NewsPreview'
 
 export default {
   data: () => ({}),
   components: {
-    ClothesModule,
+    Clothes,
     PhotosThumbnail,
     WelcomeMessage,
-    WeatherModule,
+    Weather,
     NewsPreview
   }
 }
