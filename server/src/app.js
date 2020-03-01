@@ -7,7 +7,8 @@ const config = require('./config/config')
 const app = express()
 
 app.use(morgan('combined'))
-app.use(bodyParser.json())
+app.use(bodyParser.json({ limit: '50mb' }))
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }))
 app.use(cors())
 
 const routes = require('./routes')

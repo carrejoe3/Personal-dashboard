@@ -15,6 +15,7 @@
                   <v-text-field label="Email" name="email" type="text" v-model="email" :disabled="userRegistered"/>
                   <v-text-field id="password" label="Password" name="password" type="password" v-model="password" :disabled="userRegistered"/>
                   <v-text-field id="confirmPassword" label="Confirm password" name="confirmPassword" type="password" v-model="confirmPassword" :disabled="userRegistered"/>
+                  <v-file-input accept="image/*" label="Upload your avatar" v-model="avatar" :disabled="userRegistered"></v-file-input>
                 </v-form>
               </v-card-text>
               <v-card-actions>
@@ -44,6 +45,7 @@ export default {
     password: '',
     confirmPassword: '',
     userRegistered: false,
+    avatar: null,
     showSnackbar: false
   }),
   methods: {
@@ -52,7 +54,8 @@ export default {
         const response = await authenication.register({
           username: this.username,
           email: this.email,
-          password: this.password
+          password: this.password,
+          avatar: await this.toBase64(this.avatar)
         })
 
         if (response.status === 201) {
@@ -64,6 +67,18 @@ export default {
       } catch (error) {
         console.error(error)
       }
+    },
+    toBase64 (file) {
+      return new Promise((resolve, reject) => {
+        if (file === null || file === undefined) {
+          resolve('')
+        } else {
+          const reader = new FileReader()
+          reader.readAsDataURL(file)
+          reader.onload = () => resolve(reader.result)
+          reader.onerror = error => reject(error)
+        }
+      })
     }
   }
 }
