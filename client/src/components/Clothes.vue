@@ -1,17 +1,17 @@
 <template>
-  <v-container class="grey lighten-5">
-  </v-container>
+  <v-container id="chartContainer"></v-container>
 </template>
 
 <script>
 
 import fetchData from '@/services/fetchData'
+import Highcharts from 'highcharts'
 
 export default {
   computed: {
     clothesData: {
       get () {
-        return this.$store.state.clothesData
+        return this.$store.getters.getClothesData
       },
       set (clothesData) {
         this.$store.commit('updateClothesData', clothesData)
@@ -24,13 +24,35 @@ export default {
         const response = await fetchData.fetchClothesData()
 
         if (response.status === 200) {
-          this.clothesData = response.data
+          this.clothesData = response.data.payload
+          this.createChart()
         } else {
           console.error('Failed to get clothes data')
         }
       } catch (error) {
         console.error(error)
       }
+    },
+    createChart () {
+      Highcharts.chart('chartContainer', {
+        chart: {
+          type: 'pie'
+        },
+        title: {
+          text: ''
+        },
+        plotOptions: {
+          series: {
+            depth: 25,
+            colorByPoint: true
+          }
+        },
+        series: [{
+          data: this.clothesData,
+          name: ['Clothe'],
+          showInLegend: false
+        }]
+      })
     }
   },
   mounted () {
