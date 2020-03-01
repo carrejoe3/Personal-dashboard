@@ -13,8 +13,8 @@
                 <v-form>
                   <v-text-field label="Username" name="username" type="text" v-model="username" :disabled="userRegistered"/>
                   <v-text-field label="Email" name="email" type="text" v-model="email" :disabled="userRegistered"/>
-                  <v-text-field id="password" label="Password" name="password" type="password" v-model="password" :disabled="userRegistered"/>
-                  <v-text-field id="confirmPassword" label="Confirm password" name="confirmPassword" type="password" v-model="confirmPassword" :disabled="userRegistered"/>
+                  <v-text-field id="password" label="Password" name="password" type="password" v-model="password" :disabled="userRegistered" :rules="[passwordConfirmationRule]"/>
+                  <v-text-field id="confirmPassword" label="Confirm password" name="confirmPassword" type="password" v-model="confirmPassword" :disabled="userRegistered" :rules="[passwordConfirmationRule]"/>
                   <v-file-input accept="image/*" label="Upload your avatar" v-model="avatar" :disabled="userRegistered"></v-file-input>
                 </v-form>
               </v-card-text>
@@ -48,6 +48,11 @@ export default {
     avatar: null,
     showSnackbar: false
   }),
+  computed: {
+    passwordConfirmationRule () {
+      return this.password === this.confirmPassword || 'Password must match'
+    }
+  },
   methods: {
     async registerUser () {
       try {
