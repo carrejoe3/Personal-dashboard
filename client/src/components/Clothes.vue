@@ -5,36 +5,29 @@
 
 <script>
 
-import axios from 'axios'
+import fetchData from '@/services/fetchData'
 
 export default {
   data: () => ({
     clothesData: null
   }),
   methods: {
-    fetchClothesData () {
-      axios.get('https://therapy-box.co.uk/hackathon/clothing-api.php?username=swapnil', {
-        crossdomain: true,
-        crossorigin: true,
-        headers: {
-          'Access-Control-Allow-Origin': '*'
-        },
-        proxy: {
-          host: '104.236.174.88',
-          port: 3128
-        },
-        responseType: 'json'
-      })
-        .then((response) => {
-          console.log(response)
-        })
-        .catch((error) => {
-          console.error(error)
-        })
+    async fetchClothesData () {
+      try {
+        const response = await fetchData.fetchClothesData()
+
+        if (response.status === 200) {
+          this.clothesData = response.data
+        } else {
+          console.error('Failed to get clothes data')
+        }
+      } catch (error) {
+        console.error(error)
+      }
     }
   },
   mounted () {
-    // this.fetchClothesData()
+    this.fetchClothesData()
   }
 }
 </script>

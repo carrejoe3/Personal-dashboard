@@ -46,6 +46,17 @@ router.get('/fetchNews', async (req, res) => {
   }
 })
 
+router.get('/fetchClothesData', async (req, res) => {
+  try {
+    request('https://therapy-box.co.uk/hackathon/clothing-api.php?username=swapnil', function (error, response, body) {
+      res.send(body)
+    })
+  }
+  catch (error) {
+    res.status(500).send(error)
+  }
+})
+
 async function loadUsersCollection () {
   const client = await mongoDB.MongoClient.connect('mongodb+srv://dbUser:3d3nC0urt@personaldashboard-irjzv.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true
