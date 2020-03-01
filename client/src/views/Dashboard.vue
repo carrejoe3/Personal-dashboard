@@ -30,7 +30,7 @@
       </v-col>
       <v-col sm="4">
         <v-card class="pa-2" outlined tile>
-          One of three columns
+          <ClothesModule />
         </v-card>
       </v-col>
     </v-row>
@@ -39,7 +39,12 @@
 
 <script>
 
+import ClothesModule from '@/components/ClothesModule'
+
 export default {
-  data: () => ({})
+  data: () => ({}),
+  components: {
+    ClothesModule
+  }
 }
 </script>
