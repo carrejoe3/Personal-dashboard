@@ -20,7 +20,7 @@
     <v-row>
       <v-col sm="4">
         <v-card class="pa-2" outlined tile>
-          One of three columns
+          <PhotosThumbnail />
         </v-card>
       </v-col>
       <v-col sm="4">
@@ -40,11 +40,13 @@
 <script>
 
 import ClothesModule from '@/components/ClothesModule'
+import PhotosThumbnail from '@/components/PhotosThumbnail'
 
 export default {
   data: () => ({}),
   components: {
-    ClothesModule
+    ClothesModule,
+    PhotosThumbnail
   }
 }
 </script>

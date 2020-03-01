@@ -10,6 +10,7 @@ router.post('/register', async (req, res) => {
       username: req.body.username,
       email: req.body.email,
       password: req.body.password,
+      photos: {},
       createdAt: new Date()
     })
     res.status(201).send()
