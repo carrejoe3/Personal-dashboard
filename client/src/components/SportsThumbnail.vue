@@ -9,14 +9,17 @@
 <script>
 
 import fetchData from '../services/fetchData'
+import Papa from 'papaparse'
 
 export default {
-  data: () => ({
-    sportsData: null
-  }),
   computed: {
-    userPhotos () {
-      return this.$store.state.user.photos
+    sportsData: {
+      get () {
+        return this.$store.state.sportsData
+      },
+      set (sportsData) {
+        this.$store.commit('updateSportsData', sportsData)
+      }
     }
   },
   methods: {
@@ -25,7 +28,7 @@ export default {
         const response = await fetchData.fetchSportsData()
 
         if (response.status === 200) {
-          this.sportsData = response.data
+          this.sportsData = Papa.parse(response.data).data
         } else {
           console.error('Failed to get sports data')
         }

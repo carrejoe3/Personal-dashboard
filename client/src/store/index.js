@@ -7,7 +7,8 @@ export default new Vuex.Store({
   state: {
     user: {},
     newsArticle: {},
-    clothesData: {}
+    clothesData: {},
+    sportsData: {}
   },
   mutations: {
     updateUser (state, user) {
@@ -18,6 +19,9 @@ export default new Vuex.Store({
     },
     updateClothesData (state, clothesData) {
       state.clothesData = clothesData
+    },
+    updateSportsData (state, sportsData) {
+      state.sportsData = sportsData
     }
   },
   getters: {
