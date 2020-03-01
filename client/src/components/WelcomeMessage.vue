@@ -1,9 +1,8 @@
 <template>
-  <v-toolbar single-line>
-    <v-img :src="avatar" height="80%" width="1%"></v-img>
-    <v-spacer></v-spacer>
-    <v-toolbar-title>Good day {{ username }}</v-toolbar-title>
-  </v-toolbar>
+  <v-container id="welcomeMessage">
+    <v-img :src="avatar" height="100px" width="100px" id="avatar"></v-img>
+    <div id="welcomeMessageText">Good day {{ username }}</div>
+  </v-container>
 </template>
 
 <script>
@@ -18,3 +17,20 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+#welcomeMessage {
+  margin-bottom: 5%;
+
+  #welcomeMessageText {
+    text-align: center;
+    font-size: 4em;
+    color: white;
+  }
+  #avatar {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+  }
+}
+</style>

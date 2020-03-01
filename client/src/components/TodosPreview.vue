@@ -1,7 +1,7 @@
 <template>
-  <v-container class="grey lighten-5">
+  <v-container>
     <v-card class="mx-auto" max-width="344" to="/tasks">
-      <v-card-title>Tasks</v-card-title>
+      <v-card-title color="yellow">Tasks</v-card-title>
       <v-list>
         <v-list-item v-for="(todo, index) in toDos" :key="index">
           <v-list-item-content>
@@ -27,3 +27,9 @@ export default {
   methods: {}
 }
 </script>
+
+<style lang="scss" scoped>
+.theme--light.v-list {
+  background-color: rgba(197, 218, 251, 0.8);
+}
+</style>

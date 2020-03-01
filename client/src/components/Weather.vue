@@ -1,7 +1,7 @@
 <template>
-  <v-container class="grey lighten-5">
+  <v-container>
     <v-card class="mx-auto" max-width="344">
-      <v-card-title>Weather</v-card-title>
+      <v-card-title class="justify-center">Weather</v-card-title>
       <v-list-item three-line>
         <v-list-item-content>
           <v-list-item-title class="headline mb-1">{{ this.weatherData.name }}</v-list-item-title>

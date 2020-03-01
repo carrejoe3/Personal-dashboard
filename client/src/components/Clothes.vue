@@ -1,5 +1,10 @@
 <template>
-  <v-container id="chartContainer"></v-container>
+  <v-container>
+    <v-card class="mx-auto" max-width="344">
+      <v-card-title class="justify-center">Clothes</v-card-title>
+      <div id="chartContainer"></div>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
@@ -36,7 +41,9 @@ export default {
     createChart () {
       Highcharts.chart('chartContainer', {
         chart: {
-          type: 'pie'
+          type: 'pie',
+          backgroundColor: 'rgba(197, 218, 251, 0.8)',
+          height: '200px'
         },
         title: {
           text: ''
@@ -60,3 +67,7 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+
+</style>

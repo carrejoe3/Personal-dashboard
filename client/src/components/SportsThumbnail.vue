@@ -1,7 +1,7 @@
 <template>
-  <v-container class="grey lighten-5">
+  <v-container>
     <v-card class="mx-auto" max-width="344" to="">
-      <v-card-title>Sport</v-card-title>
+      <v-card-title class="justify-center">Sport</v-card-title>
     </v-card>
   </v-container>
 </template>

@@ -1,38 +1,26 @@
 <template>
-  <v-container class="grey lighten-5">
+  <v-container>
     <WelcomeMessage />
     <v-row>
       <v-col sm="4">
-        <v-card class="pa-2" outlined tile>
-          <Weather />
-        </v-card>
+        <Weather />
       </v-col>
       <v-col sm="4">
-        <v-card class="pa-2" outlined tile>
-          <NewsPreview />
-        </v-card>
+        <NewsPreview />
       </v-col>
       <v-col sm="4">
-        <v-card class="pa-2" outlined tile>
-          <SportsThumbnail />
-        </v-card>
+        <SportsThumbnail />
       </v-col>
     </v-row>
     <v-row>
       <v-col sm="4">
-        <v-card class="pa-2" outlined tile>
-          <PhotosThumbnail />
-        </v-card>
+        <PhotosThumbnail />
       </v-col>
       <v-col sm="4">
-        <v-card class="pa-2" outlined tile>
-          <TodosThumbnail />
-        </v-card>
+        <TodosThumbnail />
       </v-col>
       <v-col sm="4">
-        <v-card class="pa-2" outlined tile>
-          <Clothes />
-        </v-card>
+        <Clothes />
       </v-col>
     </v-row>
   </v-container>
@@ -61,3 +49,7 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+
+</style>
