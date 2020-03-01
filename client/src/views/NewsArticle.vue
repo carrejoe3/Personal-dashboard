@@ -8,12 +8,18 @@
         <div class="my-4 subtitle-1">{{ this.newsArticle.rss.channel.item[0].description._cdata }}</div>
       </v-card-text>
     </v-card>
+    <HomeButton />
   </v-container>
 </template>
 
 <script>
 
+import HomeButton from '@/components/HomeButton'
+
 export default {
+  components: {
+    HomeButton
+  },
   computed: {
     newsArticle () {
       return this.$store.state.newsArticle

@@ -13,11 +13,18 @@
     <v-btn depressed id="addToDosBtn">
       <v-img src="@/public/Plus_button_small.png"></v-img>
     </v-btn>
+    <HomeButton />
   </v-container>
 </template>
 
 <script>
+
+import HomeButton from '@/components/HomeButton'
+
 export default {
+  components: {
+    HomeButton
+  },
   computed: {
     toDos () {
       return this.$store.state.user.todos
