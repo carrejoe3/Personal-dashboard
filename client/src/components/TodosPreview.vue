@@ -10,13 +10,8 @@
 
 export default {
   computed: {
-    toDos: {
-      get () {
-        return this.$store.state.user.toDos
-      },
-      set (toDos) {
-        this.$store.commit('updateToDos', toDos)
-      }
+    toDos () {
+      return this.$store.getters.getTopToDos
     }
   },
   methods: {}

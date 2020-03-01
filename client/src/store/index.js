@@ -52,6 +52,9 @@ export default new Vuex.Store({
           y: state.clothesData.filter((obj) => obj.clothe === 'raincoat').length
         }
       ]
+    },
+    getTopToDos (state) {
+      return state.user.todos.length > 3 ? state.user.todos.slice(0, 3) : state.user.todos
     }
   }
 })
