@@ -26,7 +26,7 @@
       </v-col>
       <v-col sm="4">
         <v-card class="pa-2" outlined tile>
-          One of three columns
+          <TodosThumbnail />
         </v-card>
       </v-col>
       <v-col sm="4">
@@ -46,6 +46,7 @@ import WelcomeMessage from '@/components/WelcomeMessage'
 import Weather from '@/components/Weather'
 import NewsPreview from '@/components/NewsPreview'
 import SportsThumbnail from '@/components/SportsThumbnail'
+import TodosThumbnail from '@/components/TodosPreview'
 
 export default {
   data: () => ({}),
@@ -55,7 +56,8 @@ export default {
     WelcomeMessage,
     Weather,
     NewsPreview,
-    SportsThumbnail
+    SportsThumbnail,
+    TodosThumbnail
   }
 }
 </script>
