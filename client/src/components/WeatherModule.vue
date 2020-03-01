@@ -6,18 +6,27 @@
 </template>
 
 <script>
+
+import axios from 'axios'
+
 export default {
   data: () => ({
-    geoLocation: {}
+    apiKey: 'd0a10211ea3d36b0a6423a104782130e',
+    weatherData: null
   }),
   methods: {
-    setLocation (position) {
-      this.geoLocation.latitude = position.coords.latitude
-      this.geoLocation.longitude = position.coords.longitude
+    fetchWeatherData (position) {
+      axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${this.apiKey}`)
+        .then((response) => {
+          this.weatherData = response.data
+        })
+        .catch((error) => {
+          console.error(error)
+        })
     }
   },
   mounted () {
-    navigator.geolocation.getCurrentPosition(this.setLocation)
+    navigator.geolocation.getCurrentPosition(this.fetchWeatherData)
   }
 }
 </script>
