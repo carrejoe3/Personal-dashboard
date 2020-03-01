@@ -1,5 +1,6 @@
 <template>
   <v-container class="grey lighten-5">
+    <WelcomeMessage />
     <v-row>
       <v-col sm="4">
         <v-card class="pa-2" outlined tile>
@@ -41,12 +42,14 @@
 
 import ClothesModule from '@/components/ClothesModule'
 import PhotosThumbnail from '@/components/PhotosThumbnail'
+import WelcomeMessage from '@/components/WelcomeMessage'
 
 export default {
   data: () => ({}),
   components: {
     ClothesModule,
-    PhotosThumbnail
+    PhotosThumbnail,
+    WelcomeMessage
   }
 }
 </script>
