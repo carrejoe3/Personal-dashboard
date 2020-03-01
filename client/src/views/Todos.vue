@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-list>
-      <v-list-item v-for="(todo, index) in toDos" :key="index">
+      <v-list-item v-for="(todo, index) in toDos" :key="index" dark>
         <v-list-item-content>
           <v-list-item-title v-text="todo.title"></v-list-item-title>
         </v-list-item-content>
@@ -41,5 +41,11 @@ export default {
 <style lang="scss">
 #addToDosBtn {
   background-color: transparent;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.theme--light.v-list {
+  background: transparent;
 }
 </style>
