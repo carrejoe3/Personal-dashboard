@@ -22,7 +22,32 @@ export default new Vuex.Store({
   },
   getters: {
     getClothesData (state) {
-      return [state.clothesData.filter((obj) => obj.clothe === 'jumper').length, state.clothesData.filter((obj) => obj.clothe === 'hoodie').length, state.clothesData.filter((obj) => obj.clothe === 'jacket').length, state.clothesData.filter((obj) => obj.clothe === 'sweater').length, state.clothesData.filter((obj) => obj.clothe === 'blazer').length, state.clothesData.filter((obj) => obj.clothe === 'raincoat').length]
+      return [
+        {
+          name: 'Jumper',
+          y: state.clothesData.filter((obj) => obj.clothe === 'jumper').length
+        },
+        {
+          name: 'Hoodie',
+          y: state.clothesData.filter((obj) => obj.clothe === 'hoodie').length
+        },
+        {
+          name: 'Jacket',
+          y: state.clothesData.filter((obj) => obj.clothe === 'jacket').length
+        },
+        {
+          name: 'Sweater',
+          y: state.clothesData.filter((obj) => obj.clothe === 'sweater').length
+        },
+        {
+          name: 'Blazer',
+          y: state.clothesData.filter((obj) => obj.clothe === 'blazer').length
+        },
+        {
+          name: 'Raincoat',
+          y: state.clothesData.filter((obj) => obj.clothe === 'raincoat').length
+        }
+      ]
     }
   }
 })

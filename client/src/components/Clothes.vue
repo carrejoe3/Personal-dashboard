@@ -49,7 +49,7 @@ export default {
         },
         series: [{
           data: this.clothesData,
-          name: ['Clothe'],
+          name: 'Days worn',
           showInLegend: false
         }]
       })
