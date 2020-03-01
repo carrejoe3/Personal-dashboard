@@ -13,12 +13,42 @@ router.post('/register', async (req, res) => {
       password: req.body.password,
       avatar: req.body.avatar,
       photos: {},
-      todos: {},
+      todos: [
+        {
+          title: 'Task 1',
+          description: 'This is a description.',
+          complete: false
+        },
+        {
+          title: 'Task 2',
+          description: 'This is a description.',
+          complete: false
+        },
+        {
+          title: 'Task 3',
+          description: 'This is a description.',
+          complete: false
+        },
+        {
+          title: 'Task 4',
+          description: 'This is a description.',
+          complete: false
+        },
+        {
+          title: 'Task 5',
+          description: 'This is a description.',
+          complete: false
+        },
+        {
+          title: 'Task 6',
+          description: 'This is a description.',
+          complete: false
+        },
+      ],
       createdAt: new Date()
     })
     res.status(201).send()
-  }
-  catch (error) {
+  } catch (error) {
     res.status(500).send(error)
   }
 })
@@ -27,11 +57,10 @@ router.post('/login', async (req, res) => {
   try {
     const users = await loadUsersCollection()
     res.send(await users.find({
-      'username': req.body.username,
-      'password': req.body.password
+      username: req.body.username,
+      password: req.body.password
     }).toArray())
-  }
-  catch (error) {
+  } catch (error) {
     res.status(500).send(error)
   }
 })
@@ -41,8 +70,7 @@ router.get('/fetchNews', async (req, res) => {
     request('http://feeds.bbci.co.uk/news/rss.xml', function (error, response, body) {
       res.send(body)
     })
-  }
-  catch (error) {
+  } catch (error) {
     res.status(500).send(error)
   }
 })
@@ -52,8 +80,7 @@ router.get('/fetchClothesData', async (req, res) => {
     request('https://therapy-box.co.uk/hackathon/clothing-api.php?username=swapnil', function (error, response, body) {
       res.send(body)
     })
-  }
-  catch (error) {
+  } catch (error) {
     res.status(500).send(error)
   }
 })
@@ -63,8 +90,7 @@ router.get('/fetchSportsData', async (req, res) => {
     request('http://www.football-data.co.uk/mmz4281/1718/I1.csv', function (error, response, body) {
       res.send(body)
     })
-  }
-  catch (error) {
+  } catch (error) {
     res.status(500).send(error)
   }
 })

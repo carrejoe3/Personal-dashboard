@@ -5,6 +5,7 @@ import Register from '../views/Register.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Photos from '../views/Photos.vue'
 import NewsArticle from '../views/NewsArticle.vue'
+import Todos from '../views/Todos.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/news',
     name: 'News',
     component: NewsArticle
+  },
+  {
+    path: '/tasks',
+    name: 'Tasks',
+    component: Todos
   }
 ]
 
