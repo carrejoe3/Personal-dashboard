@@ -15,6 +15,8 @@ export default {
 
 <style lang="scss">
 #app {
+  background: url('~@/public/Background.png');
+
   .theme--light.v-card {
     background-color: rgba(197, 218, 251, 0.8);
     border: 2px solid #ffe65e;

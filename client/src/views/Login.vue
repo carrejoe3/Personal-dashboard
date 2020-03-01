@@ -116,13 +116,14 @@ export default {
   color: white;
 
   #signUpText {
-    color: yellow;
+    color: #ffe65e;
   }
 }
 </style>
 
-<style lang="scss">
-#app {
-  background: url('~@/public/Background.png')
+<style lang="scss" scoped>
+#app .theme--light.v-card {
+  background-color: transparent;
+  border: none;
 }
 </style>

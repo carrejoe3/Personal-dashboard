@@ -1,27 +1,37 @@
 <template>
-  <v-app id="inspire">
+  <v-app>
     <v-content>
       <v-container class="fill-height" fluid>
         <v-row align="center" justify="center">
-          <v-col cols="12" sm="8" md="4">
-            <v-card class="elevation-12">
-              <v-toolbar color="primary" dark flat>
-                <v-toolbar-title>Login form</v-toolbar-title>
-                <v-spacer />
+          <v-col cols="12" sm="10" md="10">
+            <v-card id="loginContainer" flat>
+              <v-toolbar id="toolbar" flat>
+                <v-spacer></v-spacer>
+                <v-toolbar-title id="title">Hackathon</v-toolbar-title>
+                <v-spacer></v-spacer>
               </v-toolbar>
               <v-card-text>
-                <v-form>
-                  <v-text-field label="Username" name="username" type="text" v-model="username" :disabled="userRegistered"/>
-                  <v-text-field label="Email" name="email" type="text" v-model="email" :disabled="userRegistered"/>
-                  <v-text-field id="password" label="Password" name="password" type="password" v-model="password" :disabled="userRegistered" :rules="[passwordConfirmationRule]"/>
-                  <v-text-field id="confirmPassword" label="Confirm password" name="confirmPassword" type="password" v-model="confirmPassword" :disabled="userRegistered" :rules="[passwordConfirmationRule]"/>
-                  <v-file-input accept="image/*" label="Upload your avatar" v-model="avatar" :disabled="userRegistered"></v-file-input>
+                <v-form class="loginInputs">
+                  <v-text-field dark label="Username" name="username" type="text" v-model="username" :disabled="userRegistered"/>
+                  <v-spacer></v-spacer>
+                  <v-text-field dark label="Email" name="email" type="text" v-model="email" :disabled="userRegistered"/>
+                </v-form>
+                <v-form class="loginInputs">
+                  <v-text-field dark id="password" label="Password" name="password" type="password" v-model="password" :disabled="userRegistered" :rules="[passwordConfirmationRule]"/>
+                  <v-spacer></v-spacer>
+                  <v-text-field dark id="confirmPassword" label="Confirm password" name="confirmPassword" type="password" v-model="confirmPassword" :disabled="userRegistered" :rules="[passwordConfirmationRule]"/>
+                </v-form>
+                <v-form class="loginInputs">
+                  <v-file-input dark accept="image/*" label="Upload your avatar" v-model="avatar" :disabled="userRegistered"></v-file-input>
                 </v-form>
               </v-card-text>
               <v-card-actions>
-                <v-spacer />
-                <v-btn color="primary" @click="registerUser" v-if="!userRegistered">Register</v-btn>
-                <v-btn color="primary" @click="registerUser" v-if="userRegistered" to="/">Back to login</v-btn>
+                <v-spacer></v-spacer>
+                <v-btn id="registerBtn" @click="registerUser" v-if="!userRegistered" depressed>
+                  <v-img src="@/public/Register_button.png" width="200px"></v-img>
+                </v-btn>
+                <v-btn id="backButton" v-if="userRegistered" to="/">Back to login</v-btn>
+                <v-spacer></v-spacer>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -88,3 +98,38 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+#app .theme--light.v-card {
+  background-color: transparent;
+  border: none;
+}
+
+#title {
+  font-size: 3em;
+  color: white;
+}
+
+.loginInputs {
+  margin-top: 10%;
+  display: flex;
+}
+
+#registerBtn {
+  margin-top: 10%;
+  background: none;
+}
+
+#backButton {
+  background: #ffe65e;
+  color: white;
+}
+
+#loginContainer {
+  background: none;
+
+  #toolbar {
+    background: none;
+  }
+}
+</style>
