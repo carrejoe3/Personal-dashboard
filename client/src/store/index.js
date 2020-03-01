@@ -5,11 +5,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user: {}
+    user: {},
+    newsArticle: {}
   },
   mutations: {
     updateUser (state, user) {
       state.user = user
+    },
+    updateNewsArticle (state, newsArticle) {
+      state.newsArticle = newsArticle
     }
   }
 })

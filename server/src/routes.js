@@ -1,5 +1,6 @@
 const mongoDB = require('mongodb')
 const express = require('express')
+const request = require('request')
 
 const router = express.Router()
 
@@ -28,6 +29,17 @@ router.post('/login', async (req, res) => {
       'username': req.body.username,
       'password': req.body.password
     }).toArray())
+  }
+  catch (error) {
+    res.status(500).send(error)
+  }
+})
+
+router.get('/fetchNews', async (req, res) => {
+  try {
+    request('http://feeds.bbci.co.uk/news/rss.xml', function (error, response, body) {
+      res.send(body)
+    })
   }
   catch (error) {
     res.status(500).send(error)

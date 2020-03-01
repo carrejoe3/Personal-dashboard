@@ -9,7 +9,7 @@
       </v-col>
       <v-col sm="4">
         <v-card class="pa-2" outlined tile>
-          One of three columns
+          <NewsPreview />
         </v-card>
       </v-col>
       <v-col sm="4">
@@ -44,6 +44,7 @@ import ClothesModule from '@/components/ClothesModule'
 import PhotosThumbnail from '@/components/PhotosThumbnail'
 import WelcomeMessage from '@/components/WelcomeMessage'
 import WeatherModule from '@/components/WeatherModule'
+import NewsPreview from '@/components/NewsPreview'
 
 export default {
   data: () => ({}),
@@ -51,7 +52,8 @@ export default {
     ClothesModule,
     PhotosThumbnail,
     WelcomeMessage,
-    WeatherModule
+    WeatherModule,
+    NewsPreview
   }
 }
 </script>
