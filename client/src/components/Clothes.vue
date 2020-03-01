@@ -8,9 +8,16 @@
 import fetchData from '@/services/fetchData'
 
 export default {
-  data: () => ({
-    clothesData: null
-  }),
+  computed: {
+    clothesData: {
+      get () {
+        return this.$store.state.clothesData
+      },
+      set (clothesData) {
+        this.$store.commit('updateClothesData', clothesData)
+      }
+    }
+  },
   methods: {
     async fetchClothesData () {
       try {

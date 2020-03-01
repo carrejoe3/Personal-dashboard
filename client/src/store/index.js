@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     user: {},
-    newsArticle: {}
+    newsArticle: {},
+    clothesData: {}
   },
   mutations: {
     updateUser (state, user) {
@@ -14,6 +15,9 @@ export default new Vuex.Store({
     },
     updateNewsArticle (state, newsArticle) {
       state.newsArticle = newsArticle
+    },
+    updateClothesData (state, clothesData) {
+      state.clothesData = clothesData
     }
   }
 })
